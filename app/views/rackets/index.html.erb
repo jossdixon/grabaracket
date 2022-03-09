@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rackets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Grip size</th>
+      <th>Weight</th>
+      <th>Head size</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rackets.each do |racket| %>
+      <tr>
+        <td><%= racket.brand %></td>
+        <td><%= racket.model %></td>
+        <td><%= racket.grip_size %></td>
+        <td><%= racket.weight %></td>
+        <td><%= racket.head_size %></td>
+        <td><%= link_to 'Show', racket %></td>
+        <td><%= link_to 'Edit', edit_racket_path(racket) %></td>
+        <td><%= link_to 'Destroy', racket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Racket', new_racket_path %>

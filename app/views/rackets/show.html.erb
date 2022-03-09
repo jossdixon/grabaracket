@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @racket.brand %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @racket.model %>
+</p>
+
+<p>
+  <strong>Grip size:</strong>
+  <%= @racket.grip_size %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @racket.weight %>
+</p>
+
+<p>
+  <strong>Head size:</strong>
+  <%= @racket.head_size %>
+</p>
+
+<%= link_to 'Edit', edit_racket_path(@racket) %> |
+<%= link_to 'Back', rackets_path %>

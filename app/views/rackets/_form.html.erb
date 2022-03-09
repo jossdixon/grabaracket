@@ -1,0 +1,17 @@
+
+<%= simple_form_for(@racket) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :grip_size %>
+    <%= f.input :weight %>
+    <%= f.input :head_size %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
