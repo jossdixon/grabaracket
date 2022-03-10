@@ -2,7 +2,15 @@ require 'test_helper'
 
 class RacketTest < ActiveSupport::TestCase
   test "invalid without brand" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "",
       model: "Ultra",
       grip_size: "L1",
@@ -14,7 +22,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with brand shorter than three characters" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wi",
       model: "Ultra",
       grip_size: "L1",
@@ -26,7 +42,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with brand longer than ten characters" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilsonwilsonwilsonwilson",
       model: "Ultra",
       grip_size: "L1",
@@ -38,7 +62,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid without model" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "",
       grip_size: "L1",
@@ -50,7 +82,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with model shorter than three characters" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ul",
       grip_size: "L1",
@@ -62,7 +102,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with no grip size" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "",
@@ -74,7 +122,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with no weight" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "L1",
@@ -86,7 +142,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with weight too low" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "L1",
