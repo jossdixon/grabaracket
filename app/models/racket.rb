@@ -8,5 +8,6 @@ class Racket < ApplicationRecord
   validates :model, presence: true, length: { minimum: 2 }
   validates :grip_size, presence: true
   validates :weight, presence: true, numericality: { in: 200..440 }
-  validates :head_size, presence: true, numericality: { in: 78..130 }
+  validates :head_size, presence: true
+  validates :head_size, numericality: { in: 78..130 }
 end
