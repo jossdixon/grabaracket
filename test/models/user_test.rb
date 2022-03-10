@@ -60,5 +60,39 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.errors[:email].empty?
   end
 
-  test "invalid "
+  test "invalid with password shorter than 6 characters" do
+    user = User.new(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "passw",
+      address: "1 World Street, London"
+    )
+    user.valid?
+    assert_not user.errors[:password].empty?
+  end
+
+  test "invalid with no address" do
+    user = User.new(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: ""
+    )
+    user.valid?
+    assert_not user.errors[:address].empty?
+  end
+
+  test "invalid with address shorter than 10 characters" do
+    user = User.new(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World"
+    )
+    user.valid?
+    assert_not user.errors[:address].empty?
+  end
 end
