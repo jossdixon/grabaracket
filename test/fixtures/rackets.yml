@@ -1,0 +1,7 @@
+test:
+  brand: Wilson
+  model: Ultra
+  grip_size: L4
+  weight: 295
+  head_size: 98
+  user: test_user

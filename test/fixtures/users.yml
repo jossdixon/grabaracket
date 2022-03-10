@@ -1,5 +1,6 @@
-test:
+test_user:
   first_name: John
   last_name: Smith
   email: johnsmith@mail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  address: 1 World Street, London
