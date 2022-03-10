@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_173156) do
+ActiveRecord::Schema.define(version: 2022_03_10_084256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "borrows", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "users_id", null: false
+    t.bigint "rackets_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
+    t.index ["rackets_id"], name: "index_borrows_on_rackets_id"
+    t.index ["users_id"], name: "index_borrows_on_users_id"
+  end
 
   create_table "rackets", force: :cascade do |t|
     t.string "brand"
@@ -42,4 +54,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_173156) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "borrows", "rackets", column: "rackets_id"
+  add_foreign_key "borrows", "users", column: "users_id"
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :borrows
   resources :rackets
   devise_for :users
   root to: 'pages#home'
