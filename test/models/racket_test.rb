@@ -25,6 +25,18 @@ class RacketTest < ActiveSupport::TestCase
     assert_not racket.errors[:brand].empty?
   end
 
+  test "invalid with brand longer than ten characters" do
+    racket = Racket.new(
+      brand: "Wilsonwilsonwilsonwilson",
+      model: "Ultra",
+      grip_size: "L1",
+      weight: "285",
+      head_size: "98"
+    )
+    racket.valid?
+    assert_not racket.errors[:brand].empty?
+  end
+
   test "invalid without model" do
     racket = Racket.new(
       brand: "Wilson",
