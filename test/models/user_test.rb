@@ -17,6 +17,7 @@ class UserTest < ActiveSupport::TestCase
       first_name: "J",
       last_name: "Smith",
       email: "hello@mail.com",
+      password: "password",
       address: "1 World Street, London"
     )
     user.valid?
@@ -28,6 +29,7 @@ class UserTest < ActiveSupport::TestCase
       first_name: "John",
       last_name: "",
       email: "hello@mail.com",
+      password: "password",
       address: "1 World Street, London"
     )
     user.valid?
@@ -39,6 +41,7 @@ class UserTest < ActiveSupport::TestCase
       first_name: "John",
       last_name: "S",
       email: "hello@mail.com",
+      password: "password",
       address: "1 World Street, London"
     )
     user.valid?
@@ -50,9 +53,12 @@ class UserTest < ActiveSupport::TestCase
       first_name: "John",
       last_name: "Smith",
       email: "hello.com",
+      password: "password",
       address: "1 World Street, London"
     )
     user.valid?
     assert_not user.errors[:email].empty?
   end
+
+  test "invalid "
 end
