@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2022_03_10_120214) do
   create_table "borrows", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.bigint "users_id", null: false
-    t.bigint "rackets_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "racket_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0
-    t.index ["rackets_id"], name: "index_borrows_on_rackets_id"
-    t.index ["users_id"], name: "index_borrows_on_users_id"
+    t.index ["racket_id"], name: "index_borrows_on_racket_id"
+    t.index ["user_id"], name: "index_borrows_on_user_id"
   end
 
   create_table "rackets", force: :cascade do |t|
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_03_10_120214) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "borrows", "rackets", column: "rackets_id"
-  add_foreign_key "borrows", "users", column: "users_id"
+  add_foreign_key "borrows", "rackets"
+  add_foreign_key "borrows", "users"
   add_foreign_key "rackets", "users"
 end

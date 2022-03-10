@@ -162,7 +162,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with weight too high" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "L1",
@@ -174,7 +182,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid without head size" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "L1",
@@ -186,7 +202,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with head size too small" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "L1",
@@ -198,7 +222,15 @@ class RacketTest < ActiveSupport::TestCase
   end
 
   test "invalid with head size too large" do
+    user = User.create!(
+      first_name: "John",
+      last_name: "Smith",
+      email: "hello@mail.com",
+      password: "password",
+      address: "1 World Street, London"
+    )
     racket = Racket.new(
+      user: user,
       brand: "Wilson",
       model: "Ultra",
       grip_size: "L1",
