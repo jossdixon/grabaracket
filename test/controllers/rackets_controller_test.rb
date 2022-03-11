@@ -7,7 +7,7 @@ class RacketsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "signed in user can get index" do
-    sign_in users(:test)
+    sign_in users(:test_user)
     get rackets_url
     assert_response :success
   end
